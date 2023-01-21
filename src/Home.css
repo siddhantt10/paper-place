@@ -1,0 +1,56 @@
+*{
+    max-width: 100%;
+}
+
+.home-hero {
+  position: relative;
+  width: 100vw;
+  height: 85vh;
+  overflow: hidden;
+}
+.home-hero video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.2);
+}
+.home-hero-text {
+  position: absolute;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  padding: 8% 30%;
+}
+.home-hero-text h3 {
+  font-size: 2.5rem;
+  padding-bottom: 0;
+  margin-bottom: -10px;
+  font-weight: 400;
+}
+.home-hero-text h1 {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+.home-hero-text p {
+  font-size: 1.5rem;
+  font-weight: 150;
+  margin-bottom: 1rem;
+  margin: 0 7% 1rem 7%;
+}
+
+.cta-btn {
+  padding: 12px 25px;
+  margin: 8px 2rem;
+  border: 1px solid #ffffff;
+  border-radius: 30px;
+  background: transparent;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+  font-size: 1rem;
+}
+
+.cta-btn:hover {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
