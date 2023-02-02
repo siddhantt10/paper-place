@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import HomepageHero from "./component/HomepageHero";
+import ProductCard from "./component/ProductCard";
 import "./Home.css";
 
 function Home() {
@@ -22,8 +23,42 @@ function Home() {
           </Link>
         </div>
       </div>
-      <div>
-        <h1 className="home-title">What is Paper Place?</h1>
+      <div className="home-newBooks">
+          <h1 className="home-newBooks-head">Newly posted books</h1>
+          <p className="home-newBooks-text">
+            explore the latest books posted by our users.
+          </p>
+        <div className="home-newBooks-row">
+          <ProductCard
+            id="1"
+            title="Product 1"
+            author="Sidd vai"
+            price={75}
+            image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+          />
+          <ProductCard
+            id="1"
+            title="Product 1"
+            author="Sidd vai"
+            price={75}
+            image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+          />
+          <ProductCard
+            id="1"
+            title="Product 1"
+            author="Sidd vai"
+            price={75}
+            image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+          />
+          <ProductCard
+            id="1"
+            title="Product 1"
+            author="Sidd vai"
+            price={75}
+            image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+          />
+        </div>
+        <button className="home-newBooks-cta">view all</button>
       </div>
     </div>
   );
