@@ -16,12 +16,12 @@ nav {
   height: 130px;
   margin: -13px 0 -20px 0;
 }
-form {
+.srch-form {
   flex: 2;
   display: flex;
   align-items: center;
 }
-form input {
+.srch-form-inp {
   width: 100%;
   padding: 8px 20px;
   margin: 8px 2rem;

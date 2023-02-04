@@ -13,8 +13,8 @@ function Header() {
           <Link to="/">
             <img className="nav-logo" src="logo-lte.png" alt="Logo"></img>
           </Link>
-          <form>
-            <input type="text" placeholder="Search..."></input>
+          <form className="srch-form">
+            <input className="srch-form-inp" type="text" placeholder="Search..."></input>
             <button className="search-button" type="submit">
               <FontAwesomeIcon className="srch-icon" icon={faSearch} />
             </button>

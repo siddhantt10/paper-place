@@ -1,0 +1,147 @@
+.link:visited {
+    color: inherit;
+}
+
+.footer {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-lft {
+  width: 30%;
+  padding: 50px;
+}
+
+.footer-logo-logo {
+  width: 200px;
+  max-height: 100px;
+  object-fit: cover;
+}
+
+.footer-logo-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: 200;
+}
+
+.footer-mid {
+  width: 30%;
+  padding: 50px;
+}
+
+.news-letter-head {
+  font-size: 2.5rem;
+  text-align: left;
+  font-weight: 700;
+}
+
+.news-letter-text {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 200;
+}
+
+.news-letter-form {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+.news-letter-inp {
+  display: block;
+  padding: 8px 10px;
+  border: 1px solid #ffffff;
+  border-radius: 30px;
+  background: transparent;
+  font-size: 14px;
+  color: white;
+}
+
+.news-letter-sub {
+  display: block;
+  padding: 8px 30px;
+  border: 1.5px solid #699bdd;
+  border-radius: 30px;
+  background: transparent;
+  color: #699bdd;
+  transition: all 0.2s ease-in-out;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.news-letter-sub:hover {
+  background-color: #699bdd;
+  color: #020202;
+}
+
+.footer-rgt {
+  width: 30%;
+  padding: 50px;
+}
+
+.footer-rgt-icons {
+  display: flex;
+  flex-direction: row;
+  color: #ffffff;
+}
+
+.footer-icons {
+  font-size: 2rem;
+  margin-right: 30px;
+  transition: all 0.2s ease-in-out;
+}
+.footer-icons:hover {
+  color: #699bdd;
+}
+
+.footer-rgt-links {
+  margin-top: 50px;
+}
+
+.footer-rgt-link-row {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px;
+}
+
+.footer-rgt-link {
+  font-size: 18px;
+  margin-right: 30px;
+  transition: all 0.2s ease-in-out;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-rgt-link:hover {
+  color: #699bdd;
+}
+
+.footer-bottom{
+    background-color: #020202;
+    justify-content: center;
+    align-items: center;
+    margin-top: -30px;
+}
+.footer-bottom-line{
+    width: 60%;
+    height: 0.5px;
+    background-color: #4d4d4d;
+    margin: 0 auto;
+}
+.footer-bottom-text{
+    font-size: 14px;
+    margin: 0 auto;
+    text-align: center;
+    color: #afafaf;
+    padding: 10px;
+}
+
+.popup {
+    position: absolute;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  

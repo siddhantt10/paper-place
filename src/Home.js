@@ -24,10 +24,10 @@ function Home() {
         </div>
       </div>
       <div className="home-newBooks">
-          <h1 className="home-newBooks-head">Newly posted books</h1>
-          <p className="home-newBooks-text">
-            explore the latest books posted by our users.
-          </p>
+        <h1 className="home-newBooks-head">Newly posted books</h1>
+        <p className="home-newBooks-text">
+          explore the latest books posted by our users.
+        </p>
         <div className="home-newBooks-row">
           <ProductCard
             id="1"
@@ -59,6 +59,56 @@ function Home() {
           />
         </div>
         <button className="home-newBooks-cta">view all</button>
+      </div>
+
+      <div className="home-catagories">
+        <h1 className="home-catagories-head">Explore Different catagories</h1>
+        <p className="home-catagories-text">
+          explore the latest books posted by our users.
+        </p>
+        <div className="home-catagories-btn">
+          <button className="home-catagories-cta">Fiction</button>
+          <button className="home-catagories-cta">Non-fiction</button>
+          <button className="home-catagories-cta">Mystery and thriller</button>
+          <button className="home-catagories-cta">Horror</button>
+          <button className="home-catagories-cta">Academic</button>
+          <button className="home-catagories-cta view-all">view all</button>
+        </div>
+      </div>
+
+      <div className="home-post">
+        <div className="home-post-lft">
+          <h1 className="home-post-cta-head">Want to list your book?</h1>
+          <p className="home-post-cta-text">
+            Fill this form with the required details and have your book up for
+            sharing with in 4 hrs. Note: you are required to sign-up to post
+            your book.
+          </p>
+          <button className="home-post-cta" type="submit">
+            Let's Do this.
+          </button>
+        </div>
+        <div className="home-post-rgt">
+          <img className="home-post-img" src="book-stack.png" alt="book stack" />
+        </div>
+      </div>
+
+      <h1 className="home-rmndr">
+        What are you waiting for?
+      </h1>
+
+      <div className="home-end">
+        <div className="home-end-lft">
+          <img className="home-end-img" src="comm.png" alt="community" />
+        </div>
+        <div className="home-end-rgt">
+          <h1 className="home-end-head">
+            Become a part of the community.
+          </h1>
+          <button className="home-end-cta" >
+            Sign-up Now!
+          </button>
+        </div>
       </div>
     </div>
   );
