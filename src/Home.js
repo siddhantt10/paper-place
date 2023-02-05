@@ -58,7 +58,9 @@ function Home() {
             image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
           />
         </div>
-        <button className="home-newBooks-cta">view all</button>
+        <Link to="/Products">
+          <button className="home-newBooks-cta">view all</button>
+        </Link>
       </div>
 
       <div className="home-catagories">
@@ -72,7 +74,9 @@ function Home() {
           <button className="home-catagories-cta">Mystery and thriller</button>
           <button className="home-catagories-cta">Horror</button>
           <button className="home-catagories-cta">Academic</button>
-          <button className="home-catagories-cta view-all">view all</button>
+          <Link to="/Products">
+            <button className="home-catagories-cta view-all">view all</button>
+          </Link>
         </div>
       </div>
 
@@ -89,25 +93,27 @@ function Home() {
           </button>
         </div>
         <div className="home-post-rgt">
-          <img className="home-post-img" src="book-stack.png" alt="book stack" />
+          <img
+            className="home-post-img"
+            src="book-stack.png"
+            alt="book stack"
+          />
         </div>
       </div>
 
-      <h1 className="home-rmndr">
-        What are you waiting for?
-      </h1>
+      <h1 className="home-rmndr">What are you waiting for?</h1>
 
       <div className="home-end">
         <div className="home-end-lft">
           <img className="home-end-img" src="comm.png" alt="community" />
         </div>
         <div className="home-end-rgt">
-          <h1 className="home-end-head">
-            Become a part of the community.
-          </h1>
-          <button className="home-end-cta" >
-            Sign-up Now!
-          </button>
+          <h1 className="home-end-head">Become a part of the community.</h1>
+          <Link to="/LogIn">
+            <button className="home-end-cta" type="submit">
+              Sign-up Now!
+            </button>
+          </Link>
         </div>
       </div>
     </div>

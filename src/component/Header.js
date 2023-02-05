@@ -4,8 +4,19 @@ import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { auth } from '../firebase';
+import { useStateValue } from '../StateProvider';
 
 function Header() {
+
+  const [{ user }] = useStateValue();
+
+  const signOut = () => {
+    if (user) {
+      auth.signOut();
+    }
+  };
+
   return (
     <div>
       <nav className="navbar">
@@ -24,9 +35,11 @@ function Header() {
             <Link to="/About">About</Link>
             <Link to="/Contact">Contact</Link>
             <Link to="/MyList">My list</Link>
-            <Link to="/LogIn" className="login">
+            <Link to={!user && "/login"} className="login-btn">
+              <div onClick={ signOut }>
               <FontAwesomeIcon className="icon" icon={faUser} />
-              LogIn
+              {user? "SignOut" : "SignIn"}
+              </div>
             </Link>
           </ul>
         </div>

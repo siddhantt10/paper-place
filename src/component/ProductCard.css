@@ -6,6 +6,11 @@
   padding: 20px;
   background-color: #ffffff;
   border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.productCard:hover{
+  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.25);
 }
 
 .productCard img {

@@ -1,0 +1,51 @@
+.anch:visited {
+    color: inherit;
+}
+
+
+.profile{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin-top: 1px;
+    border-radius: 10px;
+    width: 45%;
+    transition: all 0.2s ease-in-out;
+}
+.profile:hover{
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.25);
+}
+.profile-lft{
+    width: 40%;
+    margin: 20px;
+}
+
+.profile__img{
+    border-radius: 100%;
+    height: 240px;
+    width: 240px;
+    object-fit: cover;
+}
+
+.profile-rgt{
+    width: 50%;
+    margin: auto 0;
+}
+
+.profile__name{
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.profile__reg{
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.profile-icons{
+    display: flex;
+    flex-direction: row;
+    color: #000000;
+  }
+

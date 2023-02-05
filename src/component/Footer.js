@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 function Footer() {
-  const email = "example@email.com";
+  const email = "siddpatel0903@gmail.com";
   const [showPopup, setShowPopup] = useState(false);
 
   const copyToClipboard = (email) => {
@@ -57,7 +57,7 @@ function Footer() {
             <input
               className="news-letter-inp"
               type="text"
-              placeholder=" type your mail here..."
+              placeholder="your e-mail here..."
             ></input>
             <button className="news-letter-sub" type="submit">
               Done
@@ -83,7 +83,7 @@ function Footer() {
               <Link to="/About" className="footer-rgt-link">
                 About
               </Link>
-              <Link to="/Contact" className="footer-rgt-link">
+              <Link to="/About" className="footer-rgt-link">
                 Contact
               </Link>
             </div>
@@ -94,7 +94,7 @@ function Footer() {
               <Link to="/LogIn" className="footer-rgt-link">
                 LogIn
               </Link>
-              <Link to="/Products" className="footer-rgt-link">
+              <Link to="/products" className="footer-rgt-link">
                 All books
               </Link>
             </div>

@@ -1,5 +1,9 @@
-*{
-    max-width: 100%;
+* {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
 }
 
 .home-hero {
@@ -55,10 +59,14 @@
   color: rgb(0, 0, 0);
 }
 
-.home-newBooks{
+.home-newBooks {
   padding: 50px 0;
-  background: rgb(231,231,231);
-  background: radial-gradient(circle, rgba(231,231,231,1) 0%, rgba(123,156,200,1) 100%);
+  background: rgb(231, 231, 231);
+  background: radial-gradient(
+    circle,
+    rgba(231, 231, 231, 1) 0%,
+    rgba(123, 156, 200, 1) 100%
+  );
 }
 
 .home-newBooks-head {
@@ -73,7 +81,7 @@
   text-align: center;
 }
 
-.home-newBooks-row{
+.home-newBooks-row {
   width: 90%;
   display: flex;
   flex-wrap: wrap;
@@ -92,12 +100,12 @@
   transition: all 0.2s ease-in-out;
   font-size: 16px;
 }
-.home-newBooks-cta:hover{
+.home-newBooks-cta:hover {
   background-color: #000000;
   color: #ffffff;
 }
 
-.home-catagories{
+.home-catagories {
   padding: 50px;
 }
 
@@ -113,12 +121,12 @@
   text-align: center;
 }
 
-.home-catagories-btn{
+.home-catagories-btn {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 0 auto;
-  padding: 0 0 20px 0 ;
+  padding: 0 0 20px 0;
   list-style: none;
 }
 
@@ -133,35 +141,34 @@
   transition: all 0.2s ease-in-out;
   font-size: 16px;
 }
-.home-catagories-cta:hover{
+.home-catagories-cta:hover {
   background-color: #000000;
   color: #ffffff;
 }
 
-.view-all{
-  border: 1.5px solid #699BDD;
-  color: #699BDD;
+.view-all {
+  border: 1.5px solid #699bdd;
+  color: #699bdd;
 }
-.view-all:hover{
-  background-color: #699BDD;
+.view-all:hover {
+  background-color: #699bdd;
   color: #020202;
 }
 
-.home-post{
+.home-post {
   background: rgb(0, 0, 0);
   color: #ffffff;
   display: flex;
   max-height: 400px;
 }
-.home-post-lft{
+.home-post-lft {
   width: 50%;
   margin: 100px;
 }
-.home-post-rgt{
+.home-post-rgt {
   width: 50%;
   max-height: 400px;
 }
-
 
 .home-post-cta-head {
   font-size: 3rem;
@@ -178,7 +185,7 @@
 
 .home-post-cta {
   display: block;
-  margin: 20px 0 ;
+  margin: 20px 0;
   padding: 10px 50px;
   border: 1.5px solid #ffffff;
   border-radius: 30px;
@@ -187,39 +194,42 @@
   transition: all 0.2s ease-in-out;
   font-size: 16px;
 }
-.home-post-cta:hover{
+.home-post-cta:hover {
   background-color: #ffffff;
   color: #000000;
 }
 
-.home-post-img{
+.home-post-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-
-.home-rmndr{
+.home-rmndr {
   text-align: center;
   font-size: 5rem;
-  margin: 100px;
-  padding-bottom: 20px;
-  color: #242D32;
+  padding: 100px;
+  padding-bottom: 120px;
+  color: #242d32;
+  background-image: url(https://img.freepik.com/free-vector/wave-textures-white-background-vector_53876-60287.jpg?w=1060&t=st=1675540028~exp=1675540628~hmac=8f18a3c29513a89953875ed5dfc29bbdfbda6d1b3a20de4ddac8cc5b077e88c4);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
 }
 
-
-.home-end{
-  background: #EAF3FA;
-  color: #1A5779;
+.home-end {
+  background: #eaf3fa;
+  color: #1a5779;
   display: flex;
   height: 400px;
 }
-.home-end-lft{
+.home-end-lft {
   width: 50%;
   max-height: 400px;
   margin-bottom: 55px;
 }
-.home-end-rgt{
+.home-end-rgt {
   width: 50%;
   max-height: 400px;
   text-align: right;
@@ -242,12 +252,12 @@
   transition: all 0.2s ease-in-out;
   font-size: 16px;
 }
-.home-end-cta:hover{
-  background-color: #1A5779;
+.home-end-cta:hover {
+  background-color: #1a5779;
   color: #ffffff;
 }
 
-.home-end-img{
+.home-end-img {
   height: 100%;
   width: 100%;
   object-fit: cover;

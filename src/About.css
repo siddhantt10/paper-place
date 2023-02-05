@@ -1,0 +1,28 @@
+.about__title {
+  text-align: center;
+  padding: 100px 0 100px 0;
+  margin-bottom: 25px;
+  background-image: url(https://img.freepik.com/free-vector/diagonal-smooth-wavy-lines-pattern-background_1017-14205.jpg?w=996&t=st=1675538864~exp=1675539464~hmac=b48f478640fe2850eb81192e1eab4b4c03f5af207cb0b07260551c1a8de81fe3);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+}
+.about-profiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.about-head {
+  font-size: 3rem;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.about-text {
+  font-size: 1.25rem;
+  font-weight: 150;
+  text-align: center;
+}
