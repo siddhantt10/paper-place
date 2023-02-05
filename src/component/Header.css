@@ -6,7 +6,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 100px;
   height: 100px;
 }
 .nav-logo {
@@ -16,41 +16,7 @@ nav {
   height: 130px;
   margin: -13px 0 -20px 0;
 }
-.srch-form {
-  flex: 2;
-  display: flex;
-  align-items: center;
-}
-.srch-form-inp {
-  width: 100%;
-  padding: 8px 20px;
-  margin: 8px 2rem;
-  margin-right: 2px;
-  border: 1px solid rgb(255, 255, 255);
-  border-radius: 30px 0 0 30px;
-  background: transparent;
-  font-size: 14px;
-  color: white;
-}
-.search-button {
-  padding: 8px 20px;
-  margin: 8px 2rem;
-  margin-left: 2px;
-  border: 1px solid #699BDD;
-  border-radius: 0 30px 30px 0;
-  background: transparent;
-  color: #699BDD;
-  transition: all 0.2s ease-in-out;
-}
-.search-button .srch-icon{
-  height: 15px;
-}
 
-
-.search-button:hover {
-  background-color: #699BDD;
-  color: rgb(0, 0, 0);
-}
 
 ul {
   display: flex;
@@ -65,7 +31,7 @@ ul a {
   position: relative;
 }
 ul a .icon {
-  margin-right: 5px;
+  margin-left: 10px;
 }
 ul .login-btn {
   color: #699BDD;

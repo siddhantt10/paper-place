@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: -70px;
 
 }
 .login-logo-logo{
@@ -25,13 +26,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 20px;
     border-radius: 30px;
     width: 400px;
     padding: 30px 20px;
+    border : 1px solid #dfdfdf;
+    transition: all 0.2s ease-in-out;
 }
 .login-form:hover{
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    box-shadow: -5px 5px 15px 0 rgba(0,0,0,0.5);
 }
 
 .login-head{
@@ -56,7 +59,7 @@
     border: 2px solid #699bdd;
     border-radius:30px;
     background: transparent;
-    color: #699bdd;
+    color: #2a384b;
     transition: all 0.2s ease-in-out;
 }
 .login-button:hover{
@@ -68,7 +71,8 @@
     text-align: center;
     margin-top: 20px;
     font-size: 14px;
-    padding: 0 20px;
+    padding: 0 15px;
+    color: #797979;
 }
 
 .login-or {

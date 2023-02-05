@@ -70,8 +70,7 @@ function Footer() {
             <FontAwesomeIcon icon={faLinkedin} className="footer-icons" />
             <Link onClick={handleCopy} className="link">
               <FontAwesomeIcon icon={faGoogle} className="footer-icons" />
-            </Link>
-            {showPopup && <div className="popup">email Copied to clipboard</div>}
+            </Link>{showPopup && <div className="popup">email Copied to clipboard</div>}
             <FontAwesomeIcon icon={faTwitter} className="footer-icons" />
             <FontAwesomeIcon icon={faInstagram} className="footer-icons" />
           </div>
@@ -94,7 +93,7 @@ function Footer() {
               <Link to="/LogIn" className="footer-rgt-link">
                 LogIn
               </Link>
-              <Link to="/products" className="footer-rgt-link">
+              <Link to="/Products" className="footer-rgt-link">
                 All books
               </Link>
             </div>
