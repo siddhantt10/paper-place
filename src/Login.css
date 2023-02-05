@@ -70,3 +70,29 @@
     font-size: 14px;
     padding: 0 20px;
 }
+
+.login-or {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.login-google-icon{
+    margin-right: 10px;
+    color: green;
+}
+
+.login-google-button{
+    display: inline;
+    padding: 8px 20px;
+    margin: 8px 2rem;
+    border: 2px solid #000000;
+    border-radius:30px;
+    background: transparent;
+    color: #000000;
+    transition: all 0.2s ease-in-out;
+}
+.login-google-button:hover{
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+}

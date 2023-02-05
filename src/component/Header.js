@@ -6,14 +6,16 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { auth } from '../firebase';
 import { useStateValue } from '../StateProvider';
+import { useNavigate } from "react-router-dom";
 
 function Header() {
-
+  const navigate = useNavigate();
   const [{ user }] = useStateValue();
 
   const signOut = () => {
     if (user) {
       auth.signOut();
+      navigate(0);
     }
   };
 

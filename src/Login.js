@@ -6,13 +6,27 @@ import { useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const provider = new GoogleAuthProvider();
 
+  const signInWithGoogle = async (event) => {
+    event.preventDefault();
+    try {
+      await signInWithPopup(auth, provider);
+      navigate("/");
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   const login = async (event) => {
     event.preventDefault();
@@ -71,6 +85,12 @@ function Login() {
 
         <button onClick={register} className="login-button">
           Create your Paper Place Account
+        </button>
+        <p className="login-or">or</p>
+        
+        <button className="login-google-button" onClick={signInWithGoogle}>
+          <FontAwesomeIcon icon={faGoogle} className="login-google-icon"/>
+        Sign in with Google
         </button>
       </div>
     </div>
