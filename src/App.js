@@ -9,6 +9,7 @@ import Login from "./Login";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import Products from "./Products";
+import ProductDetail from "./ProductDetail";
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -80,6 +81,17 @@ function App() {
               <>
                 <Header />
                 <Products />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="/products/:id"
+            element={
+              <>
+                <Header />
+                <ProductDetail />
                 <Footer />
               </>
             }

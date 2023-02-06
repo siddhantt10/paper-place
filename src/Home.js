@@ -30,7 +30,7 @@ function Home() {
         </p>
         <div className="home-newBooks-row">
           <ProductCard
-            id="1"
+            id="dfgsdfhs"
             title="Product 1"
             author="Sidd vai"
             price={75}

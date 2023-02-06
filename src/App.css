@@ -6,7 +6,10 @@
 body {
   margin-top: 100px;
 }
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 .navbar {
   position: fixed;
   top: 0;

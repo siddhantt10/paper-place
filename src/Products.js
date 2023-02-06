@@ -1,10 +1,19 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./Products.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import ProductCard from "./component/ProductCard";
 
 function Products() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    return () => {
+      window.scrollTo(0, 0);
+    };
+  }, []);
+
+
   return (
     <div className="products">
       <div>

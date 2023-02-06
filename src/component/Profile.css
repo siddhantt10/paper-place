@@ -44,8 +44,10 @@
 }
 
 .profile-icons{
+    width: 150px;
     display: flex;
     flex-direction: row;
     color: #000000;
+    justify-content: space-between;
   }
 
