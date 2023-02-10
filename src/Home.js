@@ -88,9 +88,11 @@ function Home() {
             sharing with in 4 hrs. Note: you are required to sign-up to post
             your book.
           </p>
+          <Link to="/postform">
           <button className="home-post-cta" type="submit">
             Let's Do this.
           </button>
+          </Link>
         </div>
         <div className="home-post-rgt">
           <img

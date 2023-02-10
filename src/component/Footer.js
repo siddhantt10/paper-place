@@ -82,8 +82,8 @@ function Footer() {
               <Link to="/About" className="footer-rgt-link">
                 About
               </Link>
-              <Link to="/About" className="footer-rgt-link">
-                Contact
+              <Link to="/Post" className="footer-rgt-link">
+                Post
               </Link>
             </div>
             <div className="footer-rgt-link-row">

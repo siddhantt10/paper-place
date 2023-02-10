@@ -1,0 +1,79 @@
+.outcome{
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #ffffff;
+    padding: 20px;
+    width: 500px;
+}
+
+.success > h1{
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    color: #118f11;
+}
+.error > h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    color: #c01010;
+}
+
+.success>h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    
+}
+.error>h3{
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+
+.success> p  {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+}
+.error> p{
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    width: 500px;
+}
+
+.home-out-btn{
+    padding: 10px;
+    border: solid 1px #000000;
+    border-radius: 5px;
+    background: transparent;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.home-out-btn:hover{
+    color: #00cf00;
+    border: solid 1px #00cf00;
+}
+
+.home-out-btn>p{
+    padding: 0 25px;
+}
+.outIcon{
+    margin-right: 12px;
+}

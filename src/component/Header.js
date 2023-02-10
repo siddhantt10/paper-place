@@ -29,7 +29,7 @@ function Header() {
             <Link to="/">Home</Link>
             <Link to="/Products">Search</Link>
             <Link to="/About">About</Link>
-            <Link to="/about">Contact</Link>
+            <Link to="/Post">Post</Link>
             <Link to="/MyList">My list</Link>
             <Link to={!user && "/login"} className="login-btn">
               <div onClick={signOut}>

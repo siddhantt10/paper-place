@@ -16,7 +16,7 @@ const ProductCard = ({ id, title, author, price, image }) => {
             <small>/week</small>
           </p>
         </div>
-        <Link to={"/login"}>
+        <Link to={`/checkout/${id}`}>
           <button>Checkout</button>
         </Link>
       </Link>

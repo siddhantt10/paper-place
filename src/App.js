@@ -10,6 +10,9 @@ import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
 import Products from "./Products";
 import ProductDetail from "./ProductDetail";
+import Checkout from "./Checkout";
+import PostForm from "./PostForm";
+import Outcome from "./component/Outcome";
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -17,6 +20,9 @@ function App() {
 
   //useEffect
   useEffect(() => {
+
+
+
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         //logged in
@@ -39,6 +45,8 @@ function App() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+
 
   return (
     <Router>
@@ -93,6 +101,37 @@ function App() {
                 <Header />
                 <ProductDetail />
                 <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="/checkout/:id"
+            element={
+              <>
+                <Header />
+                <Checkout />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="postform"
+            element={
+              <>
+                {user ? <Header />: <div></div>}
+                {user ? <PostForm /> : <Login />}
+                {user ? <Footer />: <div></div>}
+              </>
+            }
+          />
+
+          <Route
+            path="/outcomes/:err"
+            element={
+              <>
+                <Outcome />
               </>
             }
           />
