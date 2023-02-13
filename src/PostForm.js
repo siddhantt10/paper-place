@@ -19,6 +19,7 @@ function PostForm() {
   const [imgUrl, setImgUrl] = useState([]);
   const [title, setTitle] = useState("");
   const [userExists, setUserExists] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const navigate = useNavigate();
 
   const handleTitleChange = (event) => {
@@ -106,6 +107,11 @@ function PostForm() {
     resolver: yupResolver(schema),
   });
 
+  const nevi = () => {
+    const err=errors.message == null ? "success" : "error"
+    navigate(`/outcomes/${err}`);
+  };
+
   const onCreatePost = async (data) => {
     await postimages();
 
@@ -115,11 +121,21 @@ function PostForm() {
           setImgUrl((prev) => [...prev, url]);
         });
       });
-      console.log(imgUrl);
     });
-    console.log(imgUrl);
 
-    await addDoc(postsRef, {
+    await addDoc(postsRef, userExists? {
+      bookTitle: data.title,
+      bookAuthor: data.author,
+      bookDescription: data.description,
+      bookgenre: data.genre,
+      bookCondition: data.condition,
+      rent: data.rent,
+      rentPrice: data.rentPrice,
+      sell: data.sell,
+      sellPrice: data.sellPrice,
+      userId: user?.uid,
+      images: imgUrl,
+    }:{
       bookTitle: data.title,
       bookAuthor: data.author,
       bookDescription: data.description,
@@ -142,8 +158,7 @@ function PostForm() {
       userId: user?.uid,
     });
     
-    const err=errors.message == null ? "success" : "error"
-    navigate(`/outcomes/${err}`);
+    await nevi();
   };
 
   return (

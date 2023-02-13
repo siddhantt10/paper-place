@@ -1,0 +1,67 @@
+.dash-head {
+  background-color: #29435cab;
+  padding: 20px;
+  font-size: 20px;
+  color: #ffffff;
+  padding-top: 30px;
+}
+.dash-head-h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-left: 20px;
+}
+.dash-head-p {
+  font-size: 18px;
+  font-weight: 300;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  width: 700px;
+}
+
+.dash-body {
+  background-color: #d1d1d1;
+  padding: 30px;
+  font-size: 20px;
+  color: #29435c;
+}
+.dash-btn {
+  background-color: transparent;
+  color: #29435c;
+  border: none;
+  padding: 5px 20px 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  border: solid 1px #29435c;
+  font-size: 16px;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+.dash-btn:hover {
+  background-color: #29435c;
+  color: #ffffff;
+}
+.dash-btn:active {
+  background-color: #29435c;
+  color: #ffffff;
+}
+.dash-content-head{
+    padding: 30px;
+    padding-left: 40px;
+}
+.dash-content-head-h1{
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.dash-content-head-p{
+    font-size: 18px;
+    font-weight: 300;
+    width: 700px;
+}
+
+.dash-content-body{
+    padding: 30px;
+}
+

@@ -3,8 +3,57 @@ import { Link } from "react-router-dom";
 import HomepageHero from "./component/HomepageHero";
 import ProductCard from "./component/ProductCard";
 import "./Home.css";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "./firebase";
+import { useEffect, useState } from "react";
+import { useStateValue } from "./StateProvider";
+
 
 function Home() {
+  const postRef = collection(db, "posts");
+  const [homeCard, setHomeCard] = useState([]);
+  const [{ user }] = useStateValue();
+
+
+
+  useEffect(() => {
+    const getPosts = async () => {
+      const postSnapshot = await getDocs(postRef);
+      const postList = postSnapshot.docs.slice(0, 4).map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setHomeCard(postList);
+    };
+    getPosts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+
+  const listHomeCard = homeCard.map((post) => {
+    return (
+        <div className="dash-body-card">
+          <ProductCard
+            id={post.id}
+            title={post.bookTitle}
+            author={post.bookAuthor}
+            description={post.bookDescription}
+            rentPrice={post.rentPrice}
+            sellPrice={post.sellPrice}
+            rent={post.rent}
+            sell={post.sell}
+            image={post.images}
+            userId={post.userId}
+          />
+        </div>
+    );
+  });
+
+
+
+
+
+
   return (
     <div className="home">
       <div className="home-hero">
@@ -16,8 +65,8 @@ function Home() {
             One place to share your precious book collection with like minds
             like you.
           </p>
-          <Link to="/LogIn">
-            <button className="cta-btn" type="submit">
+          <Link to={user? "/products" : "/LogIn"}>
+            <button className="cta-btn">
               Get Started
             </button>
           </Link>
@@ -29,34 +78,7 @@ function Home() {
           explore the latest books posted by our users.
         </p>
         <div className="home-newBooks-row">
-          <ProductCard
-            id="dfgsdfhs"
-            title="Product 1"
-            author="Sidd vai"
-            price={75}
-            image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-          />
-          <ProductCard
-            id="1"
-            title="Product 1"
-            author="Sidd vai"
-            price={75}
-            image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-          />
-          <ProductCard
-            id="1"
-            title="Product 1"
-            author="Sidd vai"
-            price={75}
-            image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-          />
-          <ProductCard
-            id="1"
-            title="Product 1"
-            author="Sidd vai"
-            price={75}
-            image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-          />
+          {listHomeCard}
         </div>
         <Link to="/Products">
           <button className="home-newBooks-cta">view all</button>

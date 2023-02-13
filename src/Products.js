@@ -3,15 +3,53 @@ import "./Products.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import ProductCard from "./component/ProductCard";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "./firebase";
+import { useState } from "react";
+
 
 function Products() {
+  const postRef = collection(db, "posts");
+  const [prodCard, setProdCard] = useState([]);
 
   useEffect(() => {
+
+    const getPosts = async () => {
+      const postSnapshot = await getDocs(postRef);
+      const postList = postSnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setProdCard(postList);
+    };
+    getPosts();
+
+
     window.scrollTo(0, 0);
     return () => {
       window.scrollTo(0, 0);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const listProdCard = prodCard.map((post) => {
+    return (
+        <div className="dash-body-card">
+          <ProductCard
+            id={post.id}
+            title={post.bookTitle}
+            author={post.bookAuthor}
+            description={post.bookDescription}
+            rentPrice={post.rentPrice}
+            sellPrice={post.sellPrice}
+            rent={post.rent}
+            sell={post.sell}
+            image={post.images}
+            userId={post.userId}
+          />
+        </div>
+    );
+  });
 
 
   return (
@@ -36,76 +74,7 @@ function Products() {
         <h1 className="products-h2">Results</h1>
       </div>
       <div className="products-container">
-        <ProductCard
-          id="1"
-          title="Product 1"
-          author="Sidd vai"
-          price={75}
-          image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-        />
-        <ProductCard
-          id="1"
-          title="Product 1"
-          author="Sidd vai"
-          price={75}
-          image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-        />
-        <ProductCard
-          id="1"
-          title="Product 1"
-          author="Sidd vai"
-          price={75}
-          image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-        />
-        <ProductCard
-          id="1"
-          title="Product 1"
-          author="Sidd vai"
-          price={75}
-          image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-        />
-        <ProductCard
-          id="1"
-          title="Product 1"
-          author="Sidd vai"
-          price={75}
-          image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-        />
-        <ProductCard
-          id="1"
-          title="Product 1"
-          author="Sidd vai"
-          price={75}
-          image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-        />
-        <ProductCard
-          id="1"
-          title="Product 1"
-          author="Sidd vai"
-          price={75}
-          image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-        />
-        <ProductCard
-          id="1"
-          title="Product 1"
-          author="Sidd vai"
-          price={75}
-          image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-        />
-        <ProductCard
-          id="1"
-          title="Product 1"
-          author="Sidd vai"
-          price={75}
-          image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-        />
-        <ProductCard
-          id="1"
-          title="Product 1"
-          author="Sidd vai"
-          price={75}
-          image="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-        />
+        {listProdCard}
       </div>
     </div>
   );

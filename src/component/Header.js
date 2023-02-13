@@ -29,8 +29,8 @@ function Header() {
             <Link to="/">Home</Link>
             <Link to="/Products">Search</Link>
             <Link to="/About">About</Link>
-            <Link to="/Post">Post</Link>
-            <Link to="/MyList">My list</Link>
+            <Link to="/postform">Post</Link>
+            {user ? <Link to="/dashboard">My list</Link> : ""}
             <Link to={!user && "/login"} className="login-btn">
               <div onClick={signOut}>
                 {user ? "SignOut" : "SignIn"}

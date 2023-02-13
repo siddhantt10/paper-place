@@ -66,7 +66,8 @@ function Footer() {
         </div>
         <div className="footer-rgt">
           <div className="footer-rgt-icons">
-            <FontAwesomeIcon icon={faGithub} className="footer-icons" />
+            <a className="anch" rel="noopener noreferrer" target="_blank" href="https://github.com/siddhantt10/paper-place">
+            <FontAwesomeIcon icon={faGithub} className="footer-icons" /></a>
             <FontAwesomeIcon icon={faLinkedin} className="footer-icons" />
             <Link onClick={handleCopy} className="link">
               <FontAwesomeIcon icon={faGoogle} className="footer-icons" />
@@ -87,7 +88,7 @@ function Footer() {
               </Link>
             </div>
             <div className="footer-rgt-link-row">
-              <Link to="/MyList" className="footer-rgt-link">
+              <Link to="/dashboard" className="footer-rgt-link">
                 My list
               </Link>
               <Link to="/LogIn" className="footer-rgt-link">

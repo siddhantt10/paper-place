@@ -13,6 +13,7 @@ import ProductDetail from "./ProductDetail";
 import Checkout from "./Checkout";
 import PostForm from "./PostForm";
 import Outcome from "./component/Outcome";
+import Dashboard from "./Dashboard";
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -132,6 +133,17 @@ function App() {
             element={
               <>
                 <Outcome />
+              </>
+            }
+          />
+
+          <Route
+            path="dashboard"
+            element={
+              <>
+                {user? <Header /> : ""}
+                {user? <Dashboard /> : ""}
+                {user? <Footer /> : ""}
               </>
             }
           />
