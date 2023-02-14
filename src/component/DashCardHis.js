@@ -60,7 +60,7 @@ function DashCardHis({
         ) : (
           <p>Not available for selling.</p>
         )}
-        <p>Status: {status ? "fullfiled" : "pending"}</p>
+        <p>Status: {status? "fullfiled" : "pending"}</p>
       </div>
       <div className="dashcardhis-lft">
         <button>Change Status</button>

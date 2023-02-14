@@ -108,7 +108,7 @@ function PostForm() {
   });
 
   const nevi = () => {
-    const err=errors.message == null ? "success" : "error"
+    const err = errors.message == null ? "success" : "error";
     navigate(`/outcomes/${err}`);
   };
 
@@ -122,33 +122,6 @@ function PostForm() {
         });
       });
     });
-
-    await addDoc(postsRef, userExists? {
-      bookTitle: data.title,
-      bookAuthor: data.author,
-      bookDescription: data.description,
-      bookgenre: data.genre,
-      bookCondition: data.condition,
-      rent: data.rent,
-      rentPrice: data.rentPrice,
-      sell: data.sell,
-      sellPrice: data.sellPrice,
-      userId: user?.uid,
-      images: imgUrl,
-    }:{
-      bookTitle: data.title,
-      bookAuthor: data.author,
-      bookDescription: data.description,
-      bookgenre: data.genre,
-      bookCondition: data.condition,
-      rent: data.rent,
-      rentPrice: data.rentPrice,
-      sell: data.sell,
-      sellPrice: data.sellPrice,
-      userId: user?.uid,
-      images: imgUrl,
-    });
-
     await addDoc(usersRef, {
       firstName: data.firstName,
       lastName: data.lastName,
@@ -157,8 +130,38 @@ function PostForm() {
       address: data.address,
       userId: user?.uid,
     });
-    
-    await nevi();
+    await addDoc(
+      postsRef,
+      userExists
+        ? {
+            bookTitle: data.title,
+            bookAuthor: data.author,
+            bookDescription: data.description,
+            bookgenre: data.genre,
+            bookCondition: data.condition,
+            rent: data.rent,
+            rentPrice: data.rentPrice,
+            sell: data.sell,
+            sellPrice: data.sellPrice,
+            userId: user?.uid,
+            images: imgUrl,
+          }
+        : {
+            bookTitle: data.title,
+            bookAuthor: data.author,
+            bookDescription: data.description,
+            bookgenre: data.genre,
+            bookCondition: data.condition,
+            rent: data.rent,
+            rentPrice: data.rentPrice,
+            sell: data.sell,
+            sellPrice: data.sellPrice,
+            userId: user?.uid,
+            images: imgUrl,
+          }
+    ).then(() => {
+      nevi();
+    });
   };
 
   return (
