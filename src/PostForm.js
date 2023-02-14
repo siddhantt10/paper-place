@@ -45,7 +45,6 @@ function PostForm() {
 
   const imgListRef = ref(storage, `${user?.uid}/${title}`);
   const postimages = async () => {
-    console.log(images);
     images.forEach((image, index) => {
       const imagesRef = ref(storage, `${user?.uid}/${title}/${index + 1}`);
       uploadBytes(imagesRef, image);
@@ -119,49 +118,38 @@ function PostForm() {
       res.items.forEach((itemRef) => {
         getDownloadURL(itemRef).then((url) => {
           setImgUrl((prev) => [...prev, url]);
+          
         });
       });
     });
-    await addDoc(usersRef, {
-      firstName: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      phone: data.phone,
-      address: data.address,
+    console.log(imgUrl);
+    await addDoc(postsRef, {
+      bookTitle: data.title,
+      bookAuthor: data.author,
+      bookDescription: data.description,
+      bookgenre: data.genre,
+      bookCondition: data.condition,
+      rent: data.rent,
+      rentPrice: data.rentPrice,
+      sell: data.sell,
+      sellPrice: data.sellPrice,
       userId: user?.uid,
+      images: imgUrl
     });
     await addDoc(
-      postsRef,
+      usersRef,
       userExists
         ? {
-            bookTitle: data.title,
-            bookAuthor: data.author,
-            bookDescription: data.description,
-            bookgenre: data.genre,
-            bookCondition: data.condition,
-            rent: data.rent,
-            rentPrice: data.rentPrice,
-            sell: data.sell,
-            sellPrice: data.sellPrice,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            email: data.email,
+            phone: data.phone,
+            address: data.address,
             userId: user?.uid,
-            images: imgUrl,
           }
-        : {
-            bookTitle: data.title,
-            bookAuthor: data.author,
-            bookDescription: data.description,
-            bookgenre: data.genre,
-            bookCondition: data.condition,
-            rent: data.rent,
-            rentPrice: data.rentPrice,
-            sell: data.sell,
-            sellPrice: data.sellPrice,
-            userId: user?.uid,
-            images: imgUrl,
-          }
-    ).then(() => {
-      nevi();
-    });
+        : {}
+    );
+    nevi();
   };
 
   return (
