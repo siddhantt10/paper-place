@@ -8,7 +8,12 @@ import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import { storage } from "./firebase";
-import { ref, getDownloadURL, uploadBytes, listAll } from "firebase/storage";
+import {
+  ref,
+  getDownloadURL,
+  uploadBytesResumable,
+  listAll,
+} from "firebase/storage";
 
 function PostForm() {
   const [{ user }] = useStateValue();
@@ -16,8 +21,8 @@ function PostForm() {
   const postsRef = collection(db, "posts");
   const usersRef = collection(db, "users");
   const usersCollection = collection(db, "users");
-  const [imgUrl, setImgUrl] = useState([]);
   const [title, setTitle] = useState("");
+  const [prog, setProg] = useState("");
   const [userExists, setUserExists] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const navigate = useNavigate();
@@ -42,14 +47,6 @@ function PostForm() {
     getUserId();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const imgListRef = ref(storage, `${user?.uid}/${title}`);
-  const postimages = async () => {
-    images.forEach((image, index) => {
-      const imagesRef = ref(storage, `${user?.uid}/${title}/${index + 1}`);
-      uploadBytes(imagesRef, image);
-    });
-  };
 
   const schema = yup.object().shape(
     userExists
@@ -112,17 +109,47 @@ function PostForm() {
   };
 
   const onCreatePost = async (data) => {
+    const postimages = async () => {
+      images.forEach((image, index) => {
+        const imagesRef = ref(storage, `${user?.uid}/${title}/${index + 1}`);
+        const uploadTask = uploadBytesResumable(imagesRef, image);
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            setProg(`Upload is ${progress}% done`);
+            // set your progress flag or do something else with the progress value here
+          },
+          (error) => {
+            console.log(error);
+          },
+          () => {
+            const imgListRef = ref(storage, `${user?.uid}/${title}`);
+            listAll(imgListRef)
+              .then((res) => {
+                const promises = res.items.map((itemRef) =>
+                  getDownloadURL(itemRef)
+                );
+                
+                Promise.all(promises).then((urls) => {
+                  postData(data, urls);
+                });
+                
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          }
+        );
+      });
+    };
     await postimages();
 
-    await listAll(imgListRef).then((res) => {
-      res.items.forEach((itemRef) => {
-        getDownloadURL(itemRef).then((url) => {
-          setImgUrl((prev) => [...prev, url]);
-          
-        });
-      });
-    });
-    console.log(imgUrl);
+
+    
+  };
+  const postData = async (data, urls) => {
     await addDoc(postsRef, {
       bookTitle: data.title,
       bookAuthor: data.author,
@@ -134,22 +161,25 @@ function PostForm() {
       sell: data.sell,
       sellPrice: data.sellPrice,
       userId: user?.uid,
-      images: imgUrl
+      images: urls,
     });
-    await addDoc(
-      usersRef,
-      userExists
-        ? {
-            firstName: data.firstName,
-            lastName: data.lastName,
-            email: data.email,
-            phone: data.phone,
-            address: data.address,
-            userId: user?.uid,
-          }
-        : {}
-    );
-    nevi();
+    if (!userExists) {
+      await postuserData(data);
+      nevi();
+    } else {
+      nevi();
+    }
+  };
+
+  const postuserData = async (data) => {
+    await addDoc(usersRef, {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      phone: data.phone,
+      address: data.address,
+      userId: user?.uid,
+    });
   };
 
   return (
@@ -278,6 +308,7 @@ function PostForm() {
         <div className="postForm-btn">
           <input type="submit" />
           <p>By clicking "submit" you agree to our terms and conditions.</p>
+          <p>{prog}</p>
         </div>
       </form>
     </div>
