@@ -15,6 +15,7 @@ function Header() {
     if (user) {
       auth.signOut();
       navigate(0);
+      navigate("/login");
     }
   };
 
